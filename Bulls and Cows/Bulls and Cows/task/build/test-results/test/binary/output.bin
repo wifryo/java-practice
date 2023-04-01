@@ -1,12 +1,12 @@
 [1;31m
 Start test 1[0m
-$The secret code is prepared: ****.
-
-Turn 1. Answer:
-1234
-Grade: 1 cow.
-
-Turn 2. Answer:
-5678
-Grade: 1 cow.
-$Congrats! The secret code is 1234.
+> 3601
+'Grade: None. The secret code is 9589.
+[1;31m
+Start test 2[0m
+> 9589
+'Grade: None. The secret code is 6444.
+[1;31m
+Start test 3[0m
+> 1235
+9Grade: 0 bull(s) and 2 cow(s). The secret code is 5820.

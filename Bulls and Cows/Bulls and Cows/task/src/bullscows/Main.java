@@ -1,18 +1,41 @@
 package bullscows;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int secretCode = random.nextInt(10000);
+        String secretCodeString = String.format("%04d", secretCode);
 
-        System.out.println("The secret code is prepared: ****.");
-        System.out.println();
-        System.out.println("Turn 1. Answer:");
-        System.out.println("1234");
-        System.out.println("Grade: 1 cow.");
-        System.out.println();
-        System.out.println("Turn 2. Answer:");
-        System.out.println("5678");
-        System.out.println("Grade: 1 cow.");
+        int input = scanner.nextInt();
+        String inputString = String.format("%04d", input);
 
-        System.out.println("Congrats! The secret code is 1234.");
+        char[] secretCodeArray = secretCodeString.toCharArray();
+        char[] inputArray = inputString.toCharArray();
+
+        int bullsCount = 0;
+        int cowsCount = 0;
+        for (int i = 0; i < 4; i++) {
+            if (secretCodeArray[i] == inputArray[i]) {
+                bullsCount++;
+            }
+            for (int j = 0; j < 4; j++) {
+                if (secretCodeArray[i] == inputArray[j]) {
+                    cowsCount++;
+                }
+            }
+        }
+        cowsCount = cowsCount - bullsCount;
+
+        if (input == secretCode) {
+            System.out.println("Grade: 4 bulls. The secret code is " + secretCodeString + ".");
+        } else if (cowsCount > 0 || bullsCount > 0) {
+            System.out.println("Grade: " + bullsCount + " bull(s) and " + cowsCount + " cow(s). The secret code is " + secretCodeString + ".");
+        } else {
+            System.out.println("Grade: None. The secret code is " + secretCodeString + ".");
+        }
     }
 }
