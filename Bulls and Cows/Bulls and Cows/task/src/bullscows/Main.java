@@ -53,49 +53,49 @@ public class Main {
 
 
     public static void main(String[] args) {
-
+        System.out.println("Please enter the secret code's length:");
         int secretLength = getSecretLength();
+        String secretCode = null;
         if (secretLength > 10) {
             System.out.printf("Error: too number");
-        } else if (secretLength < 1){
+        } else if (secretLength < 1) {
             System.out.println("Error: insufficient number");
+        } else {
+            secretCode = getSecret(secretLength);
         }
-        else {
-            String secret = getSecret(secretLength);
-            System.out.printf("The random secret number is %s.", secret);
-        }
-    }
 
-        /*int secretCode = random.nextInt(10000);
-        String secretCodeString = String.format("%04d", secretCode);
+        System.out.println("Okay, let's start a game! Maybe slam out a guess? Or not, I'm a sign, not a cop.");
+        Scanner scanner = new Scanner(System.in);
 
-        int input = scanner.nextInt();
-        String inputString = String.format("%04d", input);
+        int guess = scanner.nextInt();
+        String guessString = String.format("%04d", guess);
 
-        char[] secretCodeArray = secretCodeString.toCharArray();
-        char[] inputArray = inputString.toCharArray();
+        char[] secretCodeArray = secretCode.toCharArray();
+        char[] guessArray = guessString.toCharArray();
 
         int bullsCount = 0;
         int cowsCount = 0;
         for (int i = 0; i < 4; i++) {
-            if (secretCodeArray[i] == inputArray[i]) {
+            if (secretCodeArray[i] == guessArray[i]) {
                 bullsCount++;
             }
             for (int j = 0; j < 4; j++) {
-                if (secretCodeArray[i] == inputArray[j]) {
+                if (secretCodeArray[i] == guessArray[j]) {
                     cowsCount++;
                 }
             }
         }
         cowsCount = cowsCount - bullsCount;
 
-        if (input == secretCode) {
-            System.out.println("Grade: 4 bulls. The secret code is " + secretCodeString + ".");
+        // make this two ints
+        if (guess == secretCode) {
+            System.out.println("Grade: 4 bulls. The secret code is " + secretCode + ".");
         } else if (cowsCount > 0 || bullsCount > 0) {
             System.out.println("Grade: " + bullsCount + " bull(s) and " + cowsCount + " cow(s). The secret code is " + secretCodeString + ".");
         } else {
-            System.out.println("Grade: None. The secret code is " + secretCodeString + ".");
-        }*/
+            System.out.println("Grade: None. The secret code is " + secretCode + ".");
+        }
+    }
 
 
 
