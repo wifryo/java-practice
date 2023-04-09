@@ -3,3 +3,4 @@ content:
 - StringBuilder
 - Random
 - Floating-point types
+- Math library
